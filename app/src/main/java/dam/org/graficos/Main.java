@@ -6,15 +6,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.
 
-
-public class Graficos extends Activity {
+public class Main extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,20 +49,32 @@ public class Graficos extends Activity {
 
         @Override
         protected void onDraw(Canvas canvas){
-            Path trazo = new Path();
-            trazo.addCircle(150, 150, 100, Path.Direction.CCW);
+            Paint cara = new Paint();
+            cara.setColor(Color.YELLOW);
             canvas.drawColor(Color.WHITE);
-            Paint pincel = new Paint();
-            pincel.setColor(Color.BLUE);
-            pincel.setStrokeWidth(8);
-            pincel.setStyle(Paint.Style.STROKE);
-            canvas.drawPath(trazo, pincel);
-            pincel.setStrokeWidth(1);
-            pincel.setStyle(Paint.Style.FILL);
-            pincel.setTextSize(20);
-            pincel.setTypeface(Typeface.SANS_SERIF);
-            canvas.drawTextOnPath("Desarrollo de aplicaciones para móviles con Android",
-                    trazo, 10, 40, pincel);
+            canvas.drawCircle(200, 200, 100, cara);
+
+            Paint ojos = new Paint();
+            ojos.setColor(Color.BLACK);
+            canvas.drawOval(new RectF(140,200,180,140), ojos);
+            canvas.drawOval(new RectF(220,200,260,140), ojos);
+
+            Paint boca = new Paint();
+            boca.setColor(Color.GRAY);
+            canvas.drawArc(new RectF(140,180,260,290),-180,-180,true,boca);
+            //canvas.drawOval(new RectF(140,270,260,220), boca);
+
+            Paint gorra = new Paint();
+            gorra.setColor(Color.MAGENTA);
+            canvas.drawArc (new RectF(120, 60, 280, 200), 180, 180, true, gorra);
+            Path visera = new Path();
+            visera.moveTo(120,280);
+            visera.cubicTo(120,300,120,290,120,280);
+
+
+            Paint pincelNombre = new Paint();
+            pincelNombre.setColor(Color.BLACK);
+            canvas.drawText("JAVIER GARCIA TARIN",0,500,pincelNombre);
         }
     }
 
