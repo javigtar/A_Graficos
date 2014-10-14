@@ -62,14 +62,14 @@ public class Main extends Activity {
             Paint boca = new Paint();
             boca.setColor(Color.GRAY);
             canvas.drawArc(new RectF(140,180,260,290),-180,-180,true,boca);
-            //canvas.drawOval(new RectF(140,270,260,220), boca);
 
             Paint gorra = new Paint();
             gorra.setColor(Color.MAGENTA);
             canvas.drawArc (new RectF(120, 60, 280, 200), 180, 180, true, gorra);
             Path visera = new Path();
-            visera.moveTo(120,280);
-            visera.cubicTo(120,300,120,290,120,280);
+            visera.moveTo(120,130);
+            visera.cubicTo(50,240,50,150,280,130);
+            canvas.drawPath(visera,gorra);
 
 
             Paint pincelNombre = new Paint();
